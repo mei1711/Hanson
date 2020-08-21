@@ -25,17 +25,27 @@ public class Copy {
 		    	}
 		      
 		    }
+		    Thread.sleep(2000);
 		  driver.findElement(By.xpath("//a[@class='dropdown-toggle']")).click();
 		    //System.out.println("drop down click");
-		    WebElement dropdown = driver.findElement(By.xpath("//a[@class='dropdown-toggle']")); 
-	        Select select = new Select(dropdown); 
-	       List<WebElement> options = select.getOptions(); 
-	        for(WebElement item:options) 
-	        { 
-	        
-	             System.out.println("Dropdown values are "+ item.getText());          
-	           }
-		    
+		  List<WebElement> dropdown_list =  driver.findElements(By.xpath("//ul[contains(@class,'dropdown-menu')]//li//a"));
+		  System.out.println("Total Values size: " + dropdown_list.size());
+		  for(int i=0; i<dropdown_list.size();i++) {
+			  System.out.println(dropdown_list.get(i).getText());
+			   
+			  }
+		  System.out.println("DropDown values listed");
+		  
+		  if(dropdown_list.get(1).getText().contentEquals("Radio & Checkbox Demo")) {
+			  dropdown_list.get(1).click();
+			  System.out.println("Value from drop down selected");
+		  }
+		  List<WebElement> elementA = driver.findElements(By.name("webform"));
+		  System.out.println("Total Number webform is " +elementA.size());
+		  for(int i=0;i<elementA.size();i++) {
+			  if(elementA.get(i).getAttribute("value").contentEquals("Option 2"));
+			  elements.get(i).click();
+		  }
 		}
 		catch (Exception e) {
 			System.out.println("My excecution stopped due to:  " +e);

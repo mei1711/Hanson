@@ -17,7 +17,7 @@ public class Practice implements WebElements {
 			driver.findElement(By.xpath(WebElements.strBingSearch)).sendKeys("lion");
 			System.out.println("Search Entry - PASS");
 			//driver.findElement(By.xpath(strImage)).click();
-			driver.findElement(By.cssSelector(cssSelector)
+		
 			System.out.println("Click Image - PASS");
 
 			// driver.findElement(By.xpath(strTextbox)).sendKeys("simple website for
